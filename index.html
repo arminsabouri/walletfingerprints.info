@@ -31,6 +31,26 @@
       <p class="mt-2 text-lg text-gray-400">On-chain transaction fingerprints across payjoin integrations</p>
     </header>
 
+    <section class="max-w-2xl mx-auto text-sm leading-relaxed space-y-4" style="border-left: 2px solid #831843; padding-left: 1.25rem;">
+      <p class="text-xs tracking-widest uppercase text-pink-800 mb-1">// context</p>
+      <p class="text-gray-400">
+        Every Bitcoin wallet leaves a fingerprint. When software constructs a transaction it makes
+        dozens of small decisions — input ordering, locktime values, signature encoding, fee
+        estimation — that vary systematically across implementations. These patterns are observable
+        on-chain and allow an adversary to identify which wallet created a transaction, even without
+        any off-chain data.
+      </p>
+      <p class="text-gray-400">
+        For collaborative transactions like
+        <a href="https://github.com/payjoin/research-docs/blob/main/fingerprints/payjoin.md" target="_blank" rel="noopener" class="text-pink-400 hover:underline">PayJoins</a>,
+        fingerprints are especially damaging. If the sender and receiver use different wallet
+        software, signature and script differences partition the inputs by owner — collapsing the
+        privacy back to a pair of regular transactions. Even when intra-transaction signals are
+        uniform, the analyst can look backward and forward in the transaction graph where each
+        wallet's fingerprints reappear.
+      </p>
+    </section>
+
     <section id="meta" class="max-w-2xl mx-auto text-gray-300 space-y-1 text-sm leading-relaxed"></section>
 
     <section id="table-wrapper" class="overflow-auto max-h-screen hidden">
@@ -54,7 +74,7 @@
         : 'unknown';
       metaEl.innerHTML = `
         <p><span class="text-gray-500">Updated:</span> ${generated}</p>
-        <p><span class="text-gray-500">Source:</span> ${sourceHtml}</p>
+	 <p><span class="text-gray-500">Source:</span> ${sourceHtml} Collected by <a href="https://github.com/bc1cindy/">@bc1cindy</a></p>
         <p class="text-gray-500 text-xs mt-2">Rows = fingerprint heuristics &nbsp;·&nbsp; Columns = wallets &nbsp;·&nbsp; <span class="val-1">YES</span> / <span class="val-0">NO</span> for binary properties, text for enumerated values</p>
       `;
     }
