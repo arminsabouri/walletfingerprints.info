@@ -11,13 +11,15 @@
     ],
     "probabilistic": [
       { "key": "low_r",            "label": "Low-R grinding (71-byte ECDSA)" },
-      { "key": "uih2_avoidance",   "label": "UIH2 avoidance (receiver)" },
       { "key": "change_position",  "label": "Change position" }
     ],
     "dependent": [
       { "key": "nlocktime",        "label": "nLockTime policy" },
       { "key": "change_type",      "label": "Change output type" },
-      { "key": "sighash",          "label": "Taproot sighash (key-path)" },
+      { "key": "sighash",          "label": "Taproot sighash (key-path)" }
+    ],
+    "payjoin_specific": [
+      { "key": "uih2_avoidance",   "label": "UIH2 avoidance (receiver)" },
       { "key": "utxo_order",       "label": "Receiver UTXO candidate ordering" }
     ],
     "temporal": [
