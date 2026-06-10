@@ -7,7 +7,7 @@
       { "key": "input_type",       "label": "Input script type" },
       { "key": "input_ordering",   "label": "Input ordering" },
       { "key": "tx_version",       "label": "nVersion = 2" },
-      { "key": "single_type",      "label": "Single input type (no self-mix)" }
+      { "key": "single_type",      "label": "Single input type" }
     ],
     "probabilistic": [
       { "key": "low_r",            "label": "Low-R grinding (71-byte ECDSA)" },
@@ -44,7 +44,7 @@
         "sighash":         "N/A (ECDSA)",
         "utxo_order":      "deterministic",
         "unconfirmed":     0,
-        "feerate_source":  "user-input (CLI)"
+        "feerate_source":  "user-input"
       }
     },
     {
@@ -101,7 +101,7 @@
         "sighash":         "64-byte DEFAULT",
         "utxo_order":      "deterministic",
         "unconfirmed":     0,
-        "feerate_source":  "mempool.space ×1.1"
+        "feerate_source":  "mempool.space"
       }
     },
     {
@@ -126,7 +126,7 @@
     {
       "name": "Cake Wallet",
       "fingerprints": {
-        "nsequence":       "[0x01, MAX, …] (bug)",
+        "nsequence":       "[0x01, 0xFFFFFFD]",
         "input_type":      "mixed (P2WPKH/P2TR/P2SH/…)",
         "input_ordering":  "BIP-69",
         "tx_version":      1,
