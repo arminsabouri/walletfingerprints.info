@@ -28,7 +28,7 @@
   <div class="max-w-full mx-auto p-6 space-y-6">
     <header class="text-center">
       <h1 class="text-4xl md:text-5xl font-bold text-pink-500">Wallet Fingerprints</h1>
-      <p class="mt-2 text-lg text-gray-400"> Under construction ... </p>
+      <p class="mt-2 text-lg text-gray-400">On-chain transaction fingerprints across payjoin integrations</p>
     </header>
 
     <section id="meta" class="max-w-2xl mx-auto text-gray-300 space-y-1 text-sm leading-relaxed"></section>
@@ -48,10 +48,14 @@
 
     function renderMeta(exportData) {
       const generated = exportData.generated_at ? new Date(exportData.generated_at).toUTCString() : 'unknown';
+      const sourceUrl = exportData.source || exportData.vector_db_uri;
+      const sourceHtml = sourceUrl
+        ? `<a href="${sourceUrl}" target="_blank" rel="noopener" class="text-pink-400 hover:underline">${sourceUrl}</a>`
+        : 'unknown';
       metaEl.innerHTML = `
-        <p><span class="text-gray-500">Generated:</span> ${generated}</p>
-        <p><span class="text-gray-500">Vector DB:</span> ${exportData.vector_db_uri || 'unknown'}</p>
-        <p class="text-gray-400 text-xs">Source: fingerprints.json</p>
+        <p><span class="text-gray-500">Updated:</span> ${generated}</p>
+        <p><span class="text-gray-500">Source:</span> ${sourceHtml}</p>
+        <p class="text-gray-500 text-xs mt-2">Rows = fingerprint heuristics &nbsp;·&nbsp; Columns = wallets &nbsp;·&nbsp; <span class="val-1">YES</span> / <span class="val-0">NO</span> for binary properties, text for enumerated values</p>
       `;
     }
 

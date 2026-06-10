@@ -1,0 +1,144 @@
+{
+  "generated_at": "2026-06-10T00:00:00Z",
+  "source": "https://github.com/payjoin/rust-payjoin/issues/1597",
+  "heuristics": {
+    "independent": [
+      { "key": "nsequence",        "label": "nSequence policy" },
+      { "key": "input_type",       "label": "Input script type" },
+      { "key": "input_ordering",   "label": "Input ordering" },
+      { "key": "tx_version",       "label": "nVersion = 2" },
+      { "key": "single_type",      "label": "Single input type (no self-mix)" }
+    ],
+    "probabilistic": [
+      { "key": "low_r",            "label": "Low-R grinding (71-byte ECDSA)" },
+      { "key": "uih2_avoidance",   "label": "UIH2 avoidance (receiver)" },
+      { "key": "change_position",  "label": "Change position" }
+    ],
+    "dependent": [
+      { "key": "nlocktime",        "label": "nLockTime policy" },
+      { "key": "change_type",      "label": "Change output type" },
+      { "key": "sighash",          "label": "Taproot sighash (key-path)" },
+      { "key": "utxo_order",       "label": "Receiver UTXO candidate ordering" }
+    ],
+    "temporal": [
+      { "key": "unconfirmed",      "label": "Contributes unconfirmed inputs" },
+      { "key": "feerate_source",   "label": "Feerate source" }
+    ]
+  },
+  "wallets": [
+    {
+      "name": "payjoin-cli",
+      "fingerprints": {
+        "nsequence":       "0xFFFFFFFD (RBF)",
+        "input_type":      "P2WPKH",
+        "input_ordering":  "shuffle",
+        "tx_version":      1,
+        "single_type":     0,
+        "low_r":           1,
+        "uih2_avoidance":  1,
+        "change_position": "random",
+        "nlocktime":       "exact tip",
+        "change_type":     "matches payment",
+        "sighash":         "N/A (ECDSA)",
+        "utxo_order":      "deterministic",
+        "unconfirmed":     0,
+        "feerate_source":  "user-input (CLI)"
+      }
+    },
+    {
+      "name": "ldk-node",
+      "fingerprints": {
+        "nsequence":       "0xFFFFFFFD (RBF)",
+        "input_type":      "P2WPKH",
+        "input_ordering":  "shuffle",
+        "tx_version":      1,
+        "single_type":     1,
+        "low_r":           1,
+        "uih2_avoidance":  1,
+        "change_position": "random",
+        "nlocktime":       "exact tip",
+        "change_type":     "P2WPKH (descriptor)",
+        "sighash":         "N/A (ECDSA)",
+        "utxo_order":      "deterministic",
+        "unconfirmed":     1,
+        "feerate_source":  "backend-dependent"
+      }
+    },
+    {
+      "name": "Liana",
+      "fingerprints": {
+        "nsequence":       "0xFFFFFFFD (RBF)",
+        "input_type":      "P2WSH / P2TR",
+        "input_ordering":  "selection order",
+        "tx_version":      1,
+        "single_type":     1,
+        "low_r":           1,
+        "uih2_avoidance":  1,
+        "change_position": "last (deterministic)",
+        "nlocktime":       "anti-fee-sniping",
+        "change_type":     "same as descriptor",
+        "sighash":         "64-byte DEFAULT",
+        "utxo_order":      "non-deterministic",
+        "unconfirmed":     0,
+        "feerate_source":  "user-input (GUI)"
+      }
+    },
+    {
+      "name": "Boltz",
+      "fingerprints": {
+        "nsequence":       "0xFFFFFFFF (MAX)",
+        "input_type":      "any (swap type)",
+        "input_ordering":  "BIP-69",
+        "tx_version":      1,
+        "single_type":     0,
+        "low_r":           1,
+        "uih2_avoidance":  1,
+        "change_position": "no change (sweep)",
+        "nlocktime":       "swap timeout height",
+        "change_type":     "matches payment",
+        "sighash":         "64-byte DEFAULT",
+        "utxo_order":      "deterministic",
+        "unconfirmed":     0,
+        "feerate_source":  "mempool.space ×1.1"
+      }
+    },
+    {
+      "name": "Bull Bitcoin",
+      "fingerprints": {
+        "nsequence":       "0xFFFFFFFF (MAX)",
+        "input_type":      "P2WPKH",
+        "input_ordering":  "shuffle",
+        "tx_version":      1,
+        "single_type":     1,
+        "low_r":           1,
+        "uih2_avoidance":  1,
+        "change_position": "random",
+        "nlocktime":       "exact tip",
+        "change_type":     "same as descriptor",
+        "sighash":         "N/A (ECDSA)",
+        "utxo_order":      "deterministic",
+        "unconfirmed":     1,
+        "feerate_source":  "mempool.bullbitcoin.com"
+      }
+    },
+    {
+      "name": "Cake Wallet",
+      "fingerprints": {
+        "nsequence":       "[0x01, MAX, …] (bug)",
+        "input_type":      "mixed (P2WPKH/P2TR/P2SH/…)",
+        "input_ordering":  "BIP-69",
+        "tx_version":      1,
+        "single_type":     0,
+        "low_r":           1,
+        "uih2_avoidance":  0,
+        "change_position": "last (deterministic)",
+        "nlocktime":       "0 (never set)",
+        "change_type":     "P2WPKH (fixed)",
+        "sighash":         "64-byte DEFAULT",
+        "utxo_order":      "deterministic",
+        "unconfirmed":     1,
+        "feerate_source":  "mempool.cakewallet.com"
+      }
+    }
+  ]
+}
