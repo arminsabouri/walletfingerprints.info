@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-10T00:00:00Z",
+  "generated_at": "2026-06-11T00:00:00Z",
   "source": "https://github.com/payjoin/rust-payjoin/issues/1597",
   "heuristics": {
     "independent": [
@@ -7,7 +7,14 @@
       { "key": "input_type",       "label": "Input script type" },
       { "key": "input_ordering",   "label": "Input ordering" },
       { "key": "tx_version",       "label": "nVersion = 2" },
-      { "key": "single_type",      "label": "Single input type" }
+      { "key": "single_type",      "label": "Single input type" },
+      { "key": "num_outputs",      "label": "Max recipients per tx" },
+      { "key": "output_p2pkh",     "label": "Sends to P2PKH" },
+      { "key": "output_p2sh",      "label": "Sends to P2SH" },
+      { "key": "output_p2wpkh",    "label": "Sends to P2WPKH" },
+      { "key": "output_p2wsh",     "label": "Sends to P2WSH" },
+      { "key": "output_p2tr",      "label": "Sends to P2TR" },
+      { "key": "compressed_keys",  "label": "Compressed ECDSA pubkeys" }
     ],
     "probabilistic": [
       { "key": "low_r",            "label": "Low-R grinding (71-byte ECDSA)" },
@@ -24,7 +31,8 @@
     ],
     "temporal": [
       { "key": "unconfirmed",      "label": "Contributes unconfirmed inputs" },
-      { "key": "feerate_source",   "label": "Feerate source" }
+      { "key": "feerate_source",   "label": "Feerate source" },
+      { "key": "rbf_replacement",  "label": "RBF replacement behavior" }
     ]
   },
   "wallets": [
@@ -44,7 +52,15 @@
         "sighash":         "N/A (ECDSA)",
         "utxo_order":      "deterministic",
         "unconfirmed":     0,
-        "feerate_source":  "user-input"
+        "feerate_source":  "user-input",
+        "num_outputs":     "single recipient",
+        "output_p2pkh":    1,
+        "output_p2sh":     1,
+        "output_p2wpkh":   1,
+        "output_p2wsh":    1,
+        "output_p2tr":     1,
+        "compressed_keys": 1,
+        "rbf_replacement": "none"
       }
     },
     {
@@ -63,7 +79,15 @@
         "sighash":         "N/A (ECDSA)",
         "utxo_order":      "deterministic",
         "unconfirmed":     1,
-        "feerate_source":  "backend-dependent"
+        "feerate_source":  "backend-dependent",
+        "num_outputs":     "single recipient",
+        "output_p2pkh":    1,
+        "output_p2sh":     1,
+        "output_p2wpkh":   1,
+        "output_p2wsh":    1,
+        "output_p2tr":     1,
+        "compressed_keys": 1,
+        "rbf_replacement": "separate builder"
       }
     },
     {
@@ -82,7 +106,15 @@
         "sighash":         "64-byte DEFAULT",
         "utxo_order":      "non-deterministic",
         "unconfirmed":     0,
-        "feerate_source":  "user-input (GUI)"
+        "feerate_source":  "user-input (GUI)",
+        "num_outputs":     "multi-recipient",
+        "output_p2pkh":    1,
+        "output_p2sh":     1,
+        "output_p2wpkh":   1,
+        "output_p2wsh":    1,
+        "output_p2tr":     1,
+        "compressed_keys": 1,
+        "rbf_replacement": "reuses send path"
       }
     },
     {
@@ -101,7 +133,15 @@
         "sighash":         "64-byte DEFAULT",
         "utxo_order":      "deterministic",
         "unconfirmed":     0,
-        "feerate_source":  "mempool.space"
+        "feerate_source":  "mempool.space",
+        "num_outputs":     "single-output sweep",
+        "output_p2pkh":    1,
+        "output_p2sh":     1,
+        "output_p2wpkh":   1,
+        "output_p2wsh":    1,
+        "output_p2tr":     1,
+        "compressed_keys": 1,
+        "rbf_replacement": "server-auto (refund)"
       }
     },
     {
@@ -120,7 +160,15 @@
         "sighash":         "N/A (ECDSA)",
         "utxo_order":      "deterministic",
         "unconfirmed":     1,
-        "feerate_source":  "mempool.bullbitcoin.com"
+        "feerate_source":  "mempool.bullbitcoin.com",
+        "num_outputs":     "single recipient",
+        "output_p2pkh":    1,
+        "output_p2sh":     1,
+        "output_p2wpkh":   1,
+        "output_p2wsh":    1,
+        "output_p2tr":     1,
+        "compressed_keys": 1,
+        "rbf_replacement": "separate builder"
       }
     },
     {
@@ -139,7 +187,15 @@
         "sighash":         "64-byte DEFAULT",
         "utxo_order":      "deterministic",
         "unconfirmed":     1,
-        "feerate_source":  "mempool.cakewallet.com"
+        "feerate_source":  "mempool.cakewallet.com",
+        "num_outputs":     "multi-recipient",
+        "output_p2pkh":    1,
+        "output_p2sh":     1,
+        "output_p2wpkh":   1,
+        "output_p2wsh":    1,
+        "output_p2tr":     1,
+        "compressed_keys": 1,
+        "rbf_replacement": "reuses send path"
       }
     }
   ]
