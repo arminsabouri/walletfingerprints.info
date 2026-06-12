@@ -95,10 +95,10 @@
       th.textContent = 'Heuristic';
       row.appendChild(th);
 
-      wallets.forEach(({ name }) => {
+      wallets.forEach(({ name, version }) => {
         const walletTh = document.createElement('th');
         walletTh.className = 'text-pink-400';
-        walletTh.textContent = name;
+        walletTh.innerHTML = name + (version ? `<br><span class="text-gray-500 font-normal" style="font-size:0.7rem">${version}</span>` : '');
         row.appendChild(walletTh);
       });
 

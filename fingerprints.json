@@ -38,6 +38,7 @@
   "wallets": [
     {
       "name": "payjoin-cli",
+      "version": "payjoin 1.0.0-rc.3",
       "fingerprints": {
         "nsequence":       "0xFFFFFFFD (RBF)",
         "input_type":      "P2WPKH",
@@ -65,6 +66,7 @@
     },
     {
       "name": "ldk-node",
+      "version": "0.8.0 / bdk_wallet 2.3.0",
       "fingerprints": {
         "nsequence":       "0xFFFFFFFD (RBF)",
         "input_type":      "P2WPKH",
@@ -92,6 +94,7 @@
     },
     {
       "name": "Liana",
+      "version": "14.0.0",
       "fingerprints": {
         "nsequence":       "0xFFFFFFFD (RBF)",
         "input_type":      "P2WSH / P2TR",
@@ -119,6 +122,7 @@
     },
     {
       "name": "Boltz",
+      "version": "boltz-backend 3.13.0",
       "fingerprints": {
         "nsequence":       "0xFFFFFFFF (MAX)",
         "input_type":      "any (swap type)",
@@ -146,6 +150,7 @@
     },
     {
       "name": "Bull Bitcoin",
+      "version": "6.11.1+186",
       "fingerprints": {
         "nsequence":       "0xFFFFFFFF (MAX)",
         "input_type":      "P2WPKH",
@@ -173,6 +178,7 @@
     },
     {
       "name": "Cake Wallet",
+      "version": "bitcoin_base 4.7.0",
       "fingerprints": {
         "nsequence":       "[0x01, 0xFFFFFFD]",
         "input_type":      "mixed (P2WPKH/P2TR/P2SH/…)",
